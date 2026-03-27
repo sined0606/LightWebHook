@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LightWebHook Admin</title>
+    <link rel="stylesheet" href="/static/css/admin.css">
+    <script src="/static/js/admin.js" defer></script>
+</head>
+<body class="dashboard-page">
+    <div class="app-shell">
+        <header class="topbar">
+            <div>
+                <p class="eyebrow">LightWebHook</p>
+                <h1>Admin Panel</h1>
+            </div>
+            <div class="topbar-actions">
+                <span id="session-user" class="session-user">Nicht angemeldet</span>
+                <button id="refresh-button" class="ghost-button" type="button">Aktualisieren</button>
+                <button id="logout-button" class="ghost-button" type="button">Abmelden</button>
+            </div>
+        </header>
+
+        <section id="flash-banner" class="flash-banner" hidden></section>
+
+        <section class="summary-grid" id="summary-grid">
+            <article class="summary-card">
+                <span>Konfigurierte Webhooks</span>
+                <strong id="summary-total">0</strong>
+            </article>
+            <article class="summary-card">
+                <span>Bereits ausgelost</span>
+                <strong id="summary-triggered">0</strong>
+            </article>
+            <article class="summary-card">
+                <span>Gespeicherte Events</span>
+                <strong id="summary-events">0</strong>
+            </article>
+        </section>
+
+        <main class="dashboard-grid">
+            <aside class="panel webhook-list-panel">
+                <div class="panel-header">
+                    <div>
+                        <p class="panel-kicker">Webhooks</p>
+                        <h2>Uebersicht</h2>
+                    </div>
+                </div>
+                <div id="webhook-list" class="webhook-list"></div>
+            </aside>
+
+            <section class="details-column">
+                <section class="panel current-panel">
+                    <div class="panel-header">
+                        <div>
+                            <p class="panel-kicker">Auswahl</p>
+                            <h2 id="webhook-title">Kein Webhook gewaehlt</h2>
+                            <p id="webhook-description" class="panel-copy">Waehle links einen Webhook aus.</p>
+                        </div>
+                        <div class="detail-actions">
+                            <span id="status-badge" class="status-pill idle">Unbekannt</span>
+                            <button id="reset-button" class="danger-button" type="button" disabled>Zuruecksetzen</button>
+                        </div>
+                    </div>
+
+                    <div class="metric-grid">
+                        <article class="metric-card">
+                            <span>Trigger Count</span>
+                            <strong id="metric-trigger-count">0</strong>
+                        </article>
+                        <article class="metric-card">
+                            <span>Letzter Trigger</span>
+                            <strong id="metric-last-trigger">Noch nie</strong>
+                        </article>
+                        <article class="metric-card">
+                            <span>Geladene Events</span>
+                            <strong id="metric-loaded-events">0</strong>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="panel events-panel">
+                    <div class="panel-header">
+                        <div>
+                            <p class="panel-kicker">Verlauf</p>
+                            <h2>Events</h2>
+                        </div>
+                        <label class="limit-select">
+                            <span>Limit</span>
+                            <select id="events-limit">
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                                <option value="50" selected>50</option>
+                                <option value="100">100</option>
+                            </select>
+                        </label>
+                    </div>
+
+                    <div id="events-list" class="events-list empty-state">
+                        Waehle einen Webhook, um Events zu laden.
+                    </div>
+                </section>
+
+                <section class="panel inspector-panel">
+                    <div class="panel-header">
+                        <div>
+                            <p class="panel-kicker">Details</p>
+                            <h2>Payload und Header</h2>
+                        </div>
+                        <span id="event-meta" class="event-meta">Noch kein Event gewaehlt</span>
+                    </div>
+
+                    <div class="inspector-grid">
+                        <article class="inspector-card">
+                            <h3>Payload</h3>
+                            <pre id="payload-viewer" class="code-block">Keine Daten geladen.</pre>
+                        </article>
+                        <article class="inspector-card">
+                            <h3>Header</h3>
+                            <pre id="headers-viewer" class="code-block">Keine Daten geladen.</pre>
+                        </article>
+                    </div>
+                </section>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

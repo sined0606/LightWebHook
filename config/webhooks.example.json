@@ -1,0 +1,14 @@
+{
+  "admin_username": "admin",
+  "admin_secret_file": "/run/secrets/admin_secret",
+  "webhooks": {
+    "github": {
+      "description": "GitHub Webhook",
+      "secret_file": "/run/secrets/github_secret"
+    },
+    "build": {
+      "description": "CI Build Webhook",
+      "secret_file": "/run/secrets/build_secret"
+    }
+  }
+}

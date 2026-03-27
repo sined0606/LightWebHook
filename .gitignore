@@ -1,0 +1,41 @@
+# Environment
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+.python-version
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.coverage
+.coverage.*
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Runtime data
+data/*
+!data/.gitkeep
+
+# Local config
+config/webhooks.json
+
+# Secrets
+secrets/*
+!secrets/.gitkeep
+!secrets/README.md

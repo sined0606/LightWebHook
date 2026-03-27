@@ -1,0 +1,1 @@
+"""LightWebHook application package."""
